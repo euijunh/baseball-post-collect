@@ -1,17 +1,13 @@
-interface OwnProps {
-  title:string;
-  list: {
-    text:string;
-    link:string;
-  }[]
-}
+import {CommunityListType} from "../model/community";
 
-const CommunityListItem = ({title, list}:OwnProps) => {
+interface OwnProps extends CommunityListType {}
+
+const CommunityListItem = ({title, posts}: OwnProps) => {
   return (
     <li>
       <h3>{title}</h3>
       <ol>
-        {list.map((post, i) => (
+        {posts.map((post, i) => (
           <li key={i}><a href={post.link}>{post.text}</a></li>
         ))}
       </ol>
